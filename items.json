@@ -1,10 +1,18 @@
 [
   {
     "id": "1",
-    "name": "Apple MacBook Pro M1 2020 - 13 Inchs (8GB / 16GB - 256GB / 512GB) - Hàng Chính Hãng",
-    "brand": "Apple",
+    "item_name": "Apple MacBook Pro M1 2020 - 13 Inchs (8GB / 16GB - 256GB / 512GB) - Hàng Chính Hãng",
+    "item_brand": "Apple",
     "discount_price": 30909000,
     "stars": 5,
-    "image_link": "https://salt.tikicdn.com/cache/w1200/media/catalog/producttmp/79/9f/44/8bc8189bbdfebd89471aed9dad5dea4c.png.webp"
+    "img_link": "https://salt.tikicdn.com/cache/w1200/media/catalog/producttmp/79/9f/44/8bc8189bbdfebd89471aed9dad5dea4c.png.webp"
+  },
+  {
+    "item_name": "Apple Mac Mini M1 2020 - 13 Inchs (8GB / 16GB - 256GB / 512GB) - Hàng Chính Hãng",
+    "item_brand": "Apple",
+    "discount_price": "16999000",
+    "img_link": "https://salt.tikicdn.com/cache/w1200/media/catalog/producttmp/2b/db/f9/b03f99b67966b337ce3ea1ac5d46dbe5.jpg.webp",
+    "stars": 5,
+    "id": "1643362009716"
   }
 ]

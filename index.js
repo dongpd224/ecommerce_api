@@ -1,8 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
-const bodyParser = require('body-parser')
-const jsonParser = bodyParser.json();
 const port = 3001
 
 
@@ -13,9 +11,6 @@ const pathToFile = path.resolve("./items.json")
 
 const getItems =()=> JSON.parse(fs.readFileSync(pathToFile))
 
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
 // HTTP logger
 app.use(morgan('combined'));
 // Phiên dịch json được đổ về từ API 
@@ -35,7 +30,7 @@ app.get("/api/items/:id",(req,res)=>{
   res.send(item)
 })
 // post request
-app.post("/api/items",jsonParser,(req,res)=>{
+app.post("/api/items",(req,res)=>{
   const items = getItems()
   const item = req.body
   item.id = Date.now().toString()
