@@ -1,11 +1,55 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
+const bodyParser = require('body-parser')
+const jsonParser = bodyParser.json();
 const port = 3001
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+
+
+const fs = require("fs")
+const path = require('path')
+const pathToFile = path.resolve("./items.json")
+
+const getItems =()=> JSON.parse(fs.readFileSync(pathToFile))
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+// HTTP logger
+app.use(morgan('combined'));
+// Phiên dịch json được đổ về từ API 
+app.use(express.json())
+
+// Set route
+app.get("/api/items",(req,res)=>{
+  const items = getItems()
+  res.send(items)
 })
 
+// Route to path
+app.get("/api/items/:id",(req,res)=>{
+  const items = getItems()
+  const {id} = req.params
+  const item = items.find( item => item.id === id )
+  res.send(item)
+})
+// post request
+app.post("/api/items",jsonParser,(req,res)=>{
+  const items = getItems()
+  const item = req.body
+  item.id = Date.now().toString()
+  items.push(item)
+
+  fs.writeFile(pathToFile, JSON.stringify(items,null,2),(error) =>{
+      if(error){
+          return res.status(422).send("Cannot store data in the file!")
+      }
+      return  res.send(items) 
+  })
+
+ 
+})
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
