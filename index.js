@@ -1,7 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
-const port = 3001
 
 
 
@@ -45,6 +44,6 @@ app.post("/api/items",(req,res)=>{
 
  
 })
-app.listen(port, () => {
-  console.log(`listening at http://localhost:${port}`)
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`listening at`, this.address().port, app.settings.env)
 })
