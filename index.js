@@ -20,6 +20,9 @@ app.get("/api/items",(req,res)=>{
   const items = getItems()
   res.send(items)
 })
+app.get("/",(req,res)=>{
+  res.send("Hello World")
+})
 
 // Route to path
 app.get("/api/items/:id",(req,res)=>{
