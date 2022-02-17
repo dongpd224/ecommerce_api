@@ -1,6 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
+const PORT = process.env.PORT || 3001
 
 
 
@@ -47,7 +48,6 @@ app.post("/api/items",(req,res)=>{
 
  
 })
-app.listen(process.env.PORT || 3001, () => {
-  const port = server.address().port;
-  console.log(`Express is working on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Express is working on port ${PORT}`);
 })
