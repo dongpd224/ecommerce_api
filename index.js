@@ -48,5 +48,6 @@ app.post("/api/items",(req,res)=>{
  
 })
 app.listen(process.env.PORT || 3001, () => {
-  console.log(`listening at`, this.address().port, app.settings.env)
+  const port = server.address().port;
+  console.log(`Express is working on port ${port}`);
 })
